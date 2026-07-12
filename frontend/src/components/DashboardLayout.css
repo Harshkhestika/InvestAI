@@ -1,0 +1,31 @@
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 250px; /* sidebar width */
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-header {
+  padding: 16px 24px;
+  border-radius: 0;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  margin-bottom: 24px;
+}
+
+.user-name {
+  margin-right: 20px;
+  font-weight: 500;
+}
+
+.content-area {
+  padding: 0 24px 24px 24px;
+  flex: 1;
+  overflow-y: auto;
+}

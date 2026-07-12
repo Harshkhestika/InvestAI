@@ -1,0 +1,89 @@
+.sectors-container {
+  padding: 10px;
+}
+
+.sector-card {
+  transition: all 0.3s ease;
+}
+
+.sector-header {
+  cursor: pointer;
+  padding: 10px 0;
+}
+
+.sector-icon {
+  font-size: 1.5rem;
+  background: var(--bg-tertiary);
+  border-radius: 12px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sector-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.sector-toggle {
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+}
+
+.sector-body {
+  border-top: 1px solid var(--border-color);
+  padding-top: 15px;
+}
+
+.industry-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-left: 3px solid var(--accent-primary);
+  padding-left: 10px;
+}
+
+.companies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+  padding-left: 15px;
+}
+
+.company-card {
+  background: var(--bg-tertiary);
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  transition: transform 0.2s;
+}
+
+.company-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-primary);
+}
+
+.company-name {
+  font-weight: 600;
+}
+
+.company-ticker {
+  font-size: 0.8rem;
+  background: var(--bg-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.company-price {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.company-change.positive {
+  color: var(--success, #10b981);
+}
+
+.company-change.negative {
+  color: var(--danger, #ef4444);
+}

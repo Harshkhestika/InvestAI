@@ -1,0 +1,67 @@
+.stocks-container {
+  padding: 20px;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.stocks-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.stocks-table th {
+  padding: 12px 15px;
+  background: var(--bg-secondary);
+  border-bottom: 2px solid var(--border-color);
+  color: var(--text-secondary);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.stocks-table td {
+  padding: 15px;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+}
+
+.stocks-table tbody tr {
+  transition: background-color 0.3s ease;
+}
+
+.stocks-table tbody tr:hover {
+  background: var(--bg-tertiary);
+}
+
+.company-info-td {
+  display: flex;
+  align-items: baseline;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-success {
+  color: #10b981;
+}
+
+.text-danger {
+  color: #ef4444;
+}
+
+/* Flash animation for live updates */
+@keyframes flashRow {
+  0% { background-color: rgba(99, 102, 241, 0.15); }
+  100% { background-color: transparent; }
+}
+
+.flash-update {
+  animation: flashRow 0.5s ease-out;
+}
