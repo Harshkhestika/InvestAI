@@ -1,37 +1,7 @@
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const nodemailer = require('nodemailer');
-
-const sendWelcomeEmail = async (userEmail, userName) => {
-  try {
-    let testAccount = await nodemailer.createTestAccount();
-    let transporter = nodemailer.createTransport({
-      host: "smtp.ethereal.email",
-      port: 587,
-      secure: false,
-      auth: {
-        user: testAccount.user,
-        pass: testAccount.pass,
-      },
-    });
-
-    let info = await transporter.sendMail({
-      from: '"InvestAI Support" <support@investai.test>',
-      to: userEmail,
-      subject: "Congratulations! Welcome to InvestAI 🚀",
-      text: `Hi ${userName},\n\nCongratulation you login in invest.aii! We are supporting you on how to invest safely and smartly. Please read all our terms and conditions carefully.\n\nHappy Investing,\nThe InvestAI Team`,
-      html: `<h3>Hi ${userName},</h3><p>Congratulation you login in invest.aii!</p><p>We are supporting you on how to invest safely and smartly. Please read all our terms and conditions carefully.</p><br><p>Happy Investing,<br>The InvestAI Team</p>`
-    });
-
-    console.log("=========================================");
-    console.log("📧 Welcome Email Sent!");
-    console.log("🔗 Preview URL: %s", nodemailer.getTestMessageUrl(info));
-    console.log("=========================================");
-  } catch (err) {
-    console.error("Failed to send welcome email:", err);
-  }
-};
+const sendWelcomeEmail = require('../utils/sendEmail');
 
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -61,7 +31,7 @@ const registerUser = async (req, res) => {
     });
 
     if (user) {
-      // Send Welcome Email asynchronously
+      // Send asynchronous welcome email
       sendWelcomeEmail(user.email, user.name);
 
       res.status(201).json({
